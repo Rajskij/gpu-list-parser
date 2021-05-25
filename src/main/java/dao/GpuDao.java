@@ -1,11 +1,11 @@
 package dao;
 
-import com.mysql.cj.sasl.ScramSha1SaslClient;
 import entity.Gpu;
-import entity.UserRequest;
 import parser.Scraper;
 
 import java.sql.*;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -26,23 +26,6 @@ public class GpuDao {
             logger.severe(e.getMessage());
         }
         return connection;
-    }
-
-    public static void main(String[] args) {
-        GpuDao gpuDao = new GpuDao();
-        UserRequest userRequest = new UserRequest();
-        userRequest.setEthash(31);
-        List<Gpu> gpuDbList = gpuDao.findByRequest(userRequest.getEthash());
-        for (Gpu gpu : gpuDbList) {
-            System.out.println(gpu.getTitle());
-            System.out.println(gpu.getEthash());
-        }
-
-        for (Gpu gpu : gpuDao.findByPrice(gpuDbList, 15_000)) {
-            System.out.println(gpu.getTitle());
-            System.out.println(gpu.getPrice());
-            System.out.println(gpu.getUrl());
-        }
     }
 
     public List<Gpu> findByRequest(int ethash) {
@@ -73,10 +56,21 @@ public class GpuDao {
 
             for (Gpu hotlineGpu : hotlineGpuList) {
                 if (hotlineGpu.getPrice() <= price) {
+                    hotlineGpu.setEthash(gpu.getEthash());
                     userGpuList.add(hotlineGpu);
                 }
             }
         }
         return userGpuList;
+    }
+
+    public List<Gpu> sortByEthash(List<Gpu> gpuList) {
+        Collections.sort(gpuList, new Comparator<Gpu>() {
+            @Override
+            public int compare(Gpu o1, Gpu o2) {
+                return o2.getEthash() - o1.getEthash();
+            }
+        });
+        return gpuList;
     }
 }

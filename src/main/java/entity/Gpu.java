@@ -4,6 +4,7 @@ public class Gpu {
     private String title;
     private int price;
     private int ethash;
+    private String url;
 
     public int getPrice() {
         return price;
@@ -12,8 +13,6 @@ public class Gpu {
     public void setPrice(int price) {
         this.price = price;
     }
-
-    private String url;
 
     public int getEthash() {
         return ethash;

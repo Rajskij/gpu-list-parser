@@ -50,13 +50,4 @@ public class Scraper {
         return gpuList;
     }
 
-    public static void main(String[] args) {
-
-        for (Gpu gpu : Scraper.parseByTitle("RTX3060")) {
-            System.out.println(gpu.getTitle());
-            System.out.println(gpu.getPrice());
-            System.out.println(gpu.getUrl());
-        }
-
-    }
 }
