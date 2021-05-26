@@ -11,7 +11,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Scraper {
-    private static final String noValue = "There is no value";
     private static final String baseUrl = "https://hotline.ua/computer/videokarty/?q=";
 
     public static List<Gpu> parseByTitle(String gpuTitle) {
@@ -25,9 +24,7 @@ public class Scraper {
         try {
             HtmlPage page = client.getPage(baseUrl + gpuTitle);
             List<HtmlElement> items = page.getByXPath("//li[@class='product-item']");
-            if (items.isEmpty()) {
-                System.out.println("No items found");
-            } else {
+            if (!items.isEmpty()) {
                 for (HtmlElement htmlItem : items) {
                     HtmlAnchor itemAnchor = htmlItem.getFirstByXPath(".//p[@class='h4']/a");
                     HtmlElement spanPrice = htmlItem.getFirstByXPath(".//span[@class='value']"); //div[@class='price-md']/
@@ -49,5 +46,4 @@ public class Scraper {
         }
         return gpuList;
     }
-
 }

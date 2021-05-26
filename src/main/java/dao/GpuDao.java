@@ -42,10 +42,9 @@ public class GpuDao {
                 gpu.setEthash(rs.getInt("ethash"));
                 gpuList.add(gpu);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            logger.severe(e.getMessage());
         }
-
         return gpuList;
     }
 
@@ -55,7 +54,7 @@ public class GpuDao {
             List<Gpu> hotlineGpuList = Scraper.parseByTitle(gpu.getTitle());
 
             for (Gpu hotlineGpu : hotlineGpuList) {
-                if (hotlineGpu.getPrice() <= price) {
+                if (hotlineGpu.getPrice() <= price && hotlineGpu.getPrice() != 0) {
                     hotlineGpu.setEthash(gpu.getEthash());
                     userGpuList.add(hotlineGpu);
                 }
@@ -64,7 +63,7 @@ public class GpuDao {
         return userGpuList;
     }
 
-    public List<Gpu> sortByEthash(List<Gpu> gpuList) {
+    public List<Gpu> sortByPrice(List<Gpu> gpuList) {
         Collections.sort(gpuList, new Comparator<Gpu>() {
             @Override
             public int compare(Gpu o1, Gpu o2) {

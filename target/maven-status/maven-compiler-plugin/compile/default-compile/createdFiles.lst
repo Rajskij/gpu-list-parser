@@ -2,4 +2,5 @@ dao\GpuDao.class
 entity\UserRequest.class
 servlet\GpuServlet.class
 entity\Gpu.class
+dao\GpuDao$1.class
 parser\Scraper.class

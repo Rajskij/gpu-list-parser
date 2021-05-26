@@ -10,8 +10,7 @@
     <packaging>war</packaging>
 
     <name>HotlineParser Maven Webapp</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <url>http://localhost:8080/</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,6 +66,12 @@
             <artifactId>jstl-impl</artifactId>
             <version>1.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

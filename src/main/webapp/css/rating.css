@@ -1,0 +1,16 @@
+.title {
+    text-align: center;
+}
+.btn {
+    background-color: dodgerblue;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 80px;
+    font-size: 20px;
+}
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}

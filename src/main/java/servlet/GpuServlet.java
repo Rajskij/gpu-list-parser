@@ -50,28 +50,22 @@ public class GpuServlet extends HttpServlet {
         if (request.getParameter("ethash") != null) {
             ethash = request.getParameter("ethash");
         }
-//        System.out.println(price + " " + ethash);
         UserRequest userRequest = new UserRequest();
         userRequest.setPrice(Integer.parseInt(price));
         userRequest.setEthash(Integer.parseInt(ethash));
 
         List<Gpu> userRequestList = gpuDao.findByRequest(userRequest.getEthash());
         List<Gpu> gpuPriceList = gpuDao.findByPrice(userRequestList, userRequest.getPrice());
-        /*        for (Gpu gpu : userRequestList) {
-            System.out.println(gpu.getTitle());
-            System.out.println(gpu.getEthash());
-        }*/
-        /*        for (Gpu gpu : gpuPriceList) {
-            System.out.println(gpu.getTitle());
-            System.out.println(gpu.getPrice());
-            System.out.println(gpu.getUrl());
-            System.out.println(gpu.getEthash());
-        }*/
-        request.setAttribute("gpuList", gpuDao.sortByEthash(gpuPriceList));
+
+        request.setAttribute("gpuList", gpuDao.sortByPrice(gpuPriceList));
         request.setAttribute("price", price);
         request.setAttribute("ethash", ethash);
-        RequestDispatcher dispatcher = request
-                .getRequestDispatcher("/gpu_rating.jsp");
-        dispatcher.forward(request, response);
+
+        if (gpuPriceList.isEmpty()) {
+            response.sendRedirect("/oops_page.jsp");
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/gpu_rating.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 }
