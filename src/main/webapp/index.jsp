@@ -15,7 +15,11 @@
 <body>
 <form action="<c:out value="${pageContext.request.contextPath}"/>/rating" method="post">
     <div class="background">
-        <div class="container">
+        <div class="window">
+            <img src="https://cdn.dribbble.com/users/1785190/screenshots/3906047/search.gif">
+            <h3 class="search-text">Looking for suitable graphics cards</h3>
+        </div>
+        <div class="container" id="toggle">
             <h1 class="text-center">Find best GPU for mining</h1><br>
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -38,9 +42,30 @@
                        onchange="ethash.value = ethash_range.value"/>
             </div>
             <br>
-            <input class="btn btn-primary" type="submit" value="Submit"/>
+            <input data-modal-target=".window" class="btn btn-primary" id="button" type="submit" value="Submit"/>
         </div>
     </div>
 </form>
+<script type="application/javascript">
+    const openModelButtons = document.querySelectorAll('[data-modal-target]');
+
+    openModelButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = document.querySelector(button.dataset.modalTarget);
+            openModal(modal);
+        });
+    });
+
+    function openModal(modal) {
+        if (modal == null) return;
+        modal.classList.add('active');
+    }
+
+    const targetDiv = document.getElementById("toggle")
+    const btn = document.getElementById("button")
+    btn.onclick = function () {
+        targetDiv.style.display = "none";
+    };
+</script>
 </body>
 </html>
