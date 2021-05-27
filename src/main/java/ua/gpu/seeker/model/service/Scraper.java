@@ -1,10 +1,10 @@
-package parser;
+package ua.gpu.seeker.model.service;
 
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import entity.Gpu;
+import ua.gpu.seeker.model.entity.Gpu;
 
 import java.io.IOException;
 import java.util.LinkedList;

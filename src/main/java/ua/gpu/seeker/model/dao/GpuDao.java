@@ -1,7 +1,7 @@
-package dao;
+package ua.gpu.seeker.model.dao;
 
-import entity.Gpu;
-import parser.Scraper;
+import ua.gpu.seeker.model.entity.Gpu;
+import ua.gpu.seeker.model.service.Scraper;
 
 import java.sql.*;
 import java.util.Collections;

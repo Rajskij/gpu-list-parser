@@ -13,7 +13,8 @@
     <style><%@include file="css/index.css"%></style>
 </head>
 <body>
-<form action="<c:out value="${pageContext.request.contextPath}"/>/rating" method="post">
+<form action="<c:out value="${pageContext.request.contextPath}"/>/rating" method="get">
+    <input type="hidden" name="command" value="rating"/>
     <div class="background">
         <div class="window">
             <img src="https://cdn.dribbble.com/users/1785190/screenshots/3906047/search.gif">

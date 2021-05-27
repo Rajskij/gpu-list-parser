@@ -9,7 +9,7 @@
             language="JavaScript"></script>
 </head>
 <body>
-<style><%@include file="css/oops.css"%>></style>
+<style><%@include file="../css/oops.css"%>></style>
 <div class="background">
     <div class="container">
         <h1 class="text-center">Oops, we couldn't find suitable graphics cards</h1><br>

@@ -1,4 +1,4 @@
-package entity;
+package ua.gpu.seeker.model.entity;
 
 public class UserRequest {
     private int price;
