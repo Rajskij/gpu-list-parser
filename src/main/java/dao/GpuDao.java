@@ -15,7 +15,7 @@ public class GpuDao {
     private final String FINED_ALL_GPU_BY_ETHASH = "SELECT * FROM gpu WHERE ethash >= ?;";
     private final String JDBC_URL = "jdbc:mysql://localhost:3306/gpu?useSSL=false";
     private final String JDBC_USERNAME = "root";
-    private final String JDBC_PASSWORD = "huait8of";
+    private final String JDBC_PASSWORD = "root";
 
     protected Connection getConnection() {
         Connection connection = null;
