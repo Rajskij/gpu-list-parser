@@ -12,7 +12,7 @@
     <script type="text/javascript" src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 </head>
 <body>
-<style><%@include file="css/rating.css"%> ></style>
+<style><%@include file="css/rating.css"%></style>
 
 <header>
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: dimgrey">

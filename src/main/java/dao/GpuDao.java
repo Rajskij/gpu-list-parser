@@ -67,7 +67,7 @@ public class GpuDao {
         Collections.sort(gpuList, new Comparator<Gpu>() {
             @Override
             public int compare(Gpu o1, Gpu o2) {
-                return o2.getEthash() - o1.getEthash();
+                return o1.getPrice() - o2.getPrice();
             }
         });
         return gpuList;

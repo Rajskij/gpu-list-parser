@@ -38,6 +38,23 @@
 
 .background {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-items: center;
     align-items: center;
+}
+.window.active {
+    transform: scale(1);
+    transition: 500ms ease-in-out;
+}
+.window {
+    position: absolute;
+    margin: 100px;
+    width: 800px;
+    z-index: 3;
+    transform: scale(0);
+    transition: 200ms ease-in-out;
+    text-align: center;
+}
+.search-text {
+    color: #4f8de1;
 }
