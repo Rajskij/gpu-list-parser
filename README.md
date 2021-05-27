@@ -12,6 +12,7 @@ GET /rating должен выдвать отсортированный спис�
 
 * Java 8;
 * Servlet, JSP, JSTL;
+* HtmlUnit
 * JDBC;
 * MySQL;
 * HTML, CSS (Bootstrap), JavaScript;
